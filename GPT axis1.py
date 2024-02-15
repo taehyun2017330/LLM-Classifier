@@ -7,7 +7,7 @@ import pandas as pd
 import os
 
 
-dataset = pd.read_csv("filtered_conversations2_50.csv")
+dataset = pd.read_csv("input.csv")
 
 
 def analyze_conversation(initial_intent, previous_turn, current_turn, response):
@@ -200,7 +200,7 @@ def analyze_conversation(initial_intent, previous_turn, current_turn, response):
 
     try:
         response = client.chat.completions.create(
-            model="",
+            model="",//desired Model
             messages=[
                 {"role": "system", "content": prompt},
                 {"role": "user", "content": previous_turn},
@@ -269,4 +269,4 @@ for index, row in dataset.iterrows():
             print(f"Previous turn not found for index {index}")
 
 # Saving the modified dataset
-dataset.to_csv("Full Results/Axis1_filtered_conversations2_50.csv", index=False)
+dataset.to_csv("output.csv", index=False)
