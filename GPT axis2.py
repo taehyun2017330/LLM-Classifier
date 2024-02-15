@@ -163,7 +163,7 @@ def analyze_conversation(previous_turn, current_turn, response):
 
     try:
         response = client.chat.completions.create(
-            model="",
+            model=""//desired model, we utilized most recent gpt 4 turbo model,
             messages=[
                 {"role": "system", "content": prompt},
                 {"role": "user", "content": previous_turn},
@@ -220,4 +220,4 @@ for index, row in dataset.iterrows():
 
 
 # Saving the modified dataset
-dataset.to_csv("results/Axis2_filtered_conversations2_50.csv", index=False)
+dataset.to_csv("output.csv", index=False)
